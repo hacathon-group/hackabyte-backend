@@ -1,0 +1,212 @@
+{
+  "trails": [
+    {
+      "trailID": 9236026,
+      "name": "Sammaish river trail",
+      "difficulty": 0,
+      "startLocation": "47.6599217,-122.1214696",
+      "endLocation": "47.6553033,-122.1123878",
+      "link": "https://www.google.com/maps/dir/47.6599217,-122.1214696/47.6553033,-122.1123878/@47.6559361,-122.1198957,1584m/data=!3m1!1e3!4m2!4m1!3e2!5m1!1e4?entry=ttu"
+    },
+    {
+      "trailID": 128614012,
+      "name": "East lake Sammaish trail",
+      "difficulty": 0,
+      "startLocation": "47.6613934,-122.0975782",
+      "endLocation": "47.6608227,-122.1083981",
+      "link": "https://www.google.com/maps/dir/47.6613934,-122.0975782/47.6608227,-122.1083981/@47.6609216,-122.1131546,1678m/data=!3m1!1e3!4m2!4m1!3e2!5m1!1e4?entry=ttu"
+    },
+    {
+      "trailID": 1297481682,
+      "name": "Marymoor Connector Trail",
+      "difficulty": 0,
+      "startLocation": "47.6639693,-122.121414",
+      "endLocation": "47.6624459,-122.111352",
+      "link": "https://www.google.com/maps/dir/47.6639693,-122.121414/47.6624459,-122.111352/@47.6628819,-122.1132494,839m/data=!3m1!1e3!4m2!4m1!3e2!5m1!1e4?entry=ttu"
+    },
+    {
+      "trailID": 76832342,
+      "name": "Heron Loop Trail",
+      "difficulty": 0,
+      "startLocation": "47.6595132,-122.1107651",
+      "endLocation": "47.6531109,-122.1072058",
+      "link": "https://www.google.com/maps/dir/47.6595132,-122.1107651/47.6531109,-122.1072058/@47.6557559,-122.1081928,1173m/data=!3m1!1e3!4m2!4m1!3e2!5m1!1e4?entry=ttu"
+    },
+    {
+      "trailID": 13435673,
+      "name": "Woodinville Juel Trail",
+      "difficulty": 1,
+      "startLocation": "47.7027022,-122.0890477",
+      "endLocation": "47.6922462,-122.0840696",
+      "link": "https://www.google.com/maps/dir/47.7027022,-122.0890477/47.6922462,-122.0840696/@47.69555,-122.0906923,1994m/data=!3m1!1e3!4m9!4m8!1m5!3m4!1m2!1d-122.0828832!2d47.6980269!3s0x54900cd17916b429:0xa607af946650b27f!1m0!3e2!5m1!1e4?entry=ttu"
+    },
+    {
+      "trailID": 23678578,
+      "name": "Powerline Trail",
+      "difficulty": 1,
+      "startLocation": "47.698211,-122.0513466",
+      "endLocation": "47.7109666,-122.0530725",
+      "link": "https://www.google.com/maps/dir/47.698211,-122.0513466/47.7109666,-122.0530725/@47.7071497,-122.0518401,1172m/data=!3m1!1e3!4m2!4m1!3e2!5m1!1e4?entry=ttu"
+    },
+    {
+      "trailID": 2343245,
+      "name": "Bear Creek Trail",
+      "difficulty": 1,
+      "startLocation": "47.6650238,-122.1214165",
+      "endLocation": "47.6706343,-122.1244057",
+      "link": "https://www.google.com/maps/dir/47.6650238,-122.1214165/47.6706343,-122.1244057/@47.66556,-122.1308232,15.68z/data=!4m2!4m1!3e2?entry=ttu"
+    },
+    {
+      "trailID": 234685,
+      "name": "Heroin Loop Trail",
+      "difficulty": 1,
+      "startLocation": "47.666568,-122.1265774",
+      "endLocation": "47.6574072,-122.1135835",
+      "link": "https://www.google.com/maps/dir/47.666568,-122.1265774/47.6574072,-122.1135835/@47.6561392,-122.1139446,16z/data=!4m14!4m13!1m10!3m4!1m2!1d-122.1109772!2d47.6598461!3s0x54907298edf323a5:0x8ee8b3fd7c30c9bb!3m4!1m2!1d-122.1072898!2d47.6539866!3s0x5490729b87e244f1:0xa1998ae3761b088a!1m0!3e2?entry=ttu"
+    },
+    {
+      "trailID": 786743,
+      "name": "Bridle Crest Trail",
+      "difficulty": 2,
+      "startLocation": "47.6595961,-122.1325299",
+      "endLocation": "47.6646035,-122.1110243",
+      "link": "https://www.google.com/maps/dir/47.6595961,-122.1325299/47.6646035,-122.1110243/@47.6611592,-122.1293715,16z/data=!4m14!4m13!1m10!3m4!1m2!1d-122.1247194!2d47.6636293!3s0x549072a726b6116d:0xc3ea8751c57622c1!3m4!1m2!1d-122.1213918!2d47.6653231!3s0x549072a420c3cf91:0x33924bca95ca1041!1m0!3e2?entry=ttu"
+    },
+    {
+      "trailID": 234472,
+      "name": "520 Bike Trail",
+      "difficulty": 2,
+      "startLocation": "47.6414251,-122.1350599",
+      "endLocation": "47.6693464,-122.1296933",
+      "link": "https://www.google.com/maps/dir/47.6414251,-122.1350599/47.6693464,-122.1296933/@47.6400953,-122.1360025,20.99z/data=!4m5!4m4!1m0!1m1!4e1!3e2?entry=ttu"
+    },
+    {
+      "trailID": 234472,
+      "name": "Microsoft Trail",
+      "difficulty": 2,
+      "startLocation": "47.6422423,-122.1288714",
+      "endLocation": "47.6459379,-122.1379925",
+      "link": "https://www.google.com/maps/dir/47.6422423,-122.1288714/47.6459379,-122.1379925/@47.6436266,-122.1377526,19.63z/data=!4m20!4m19!1m15!3m4!1m2!1d-122.1353562!2d47.6420225!3s0x54906d7288b0857b:0xccc5bf1004defb39!3m4!1m2!1d-122.1381386!2d47.6416211!3s0x54906d72a890c989:0xed416b3f97be9610!3m4!1m2!1d-122.1380194!2d47.6433175!3s0x54906d6d6d3a9159:0xa7794733038655c8!1m1!4e1!3e2?entry=ttu"
+    },
+    {
+      "trailID": 234534565,
+      "name": "Raven Trail",
+      "difficulty": 2,
+      "startLocation": "47.6606837,-122.1835173",
+      "endLocation": "47.6609817,-122.185192",
+      "link": "https://www.google.com/maps/dir/47.6606837,-122.1835173/47.6609817,-122.185192/@47.6576829,-122.1852552,15.44z/data=!4m10!4m9!1m5!3m4!1m2!1d-122.1787996!2d47.6534075!3s0x54906d2ee739efe5:0x4980a77dd82c8d35!1m1!4e1!3e2?entry=ttu"
+    }
+  ],
+  "reservations": [
+    {
+      "reservationID": 1,
+      "trailID": 9236026,
+      "difficulty": 0,
+      "attending": 0,
+      "limit": 10,
+      "time": "10:00 AM",
+      "date": "7/30"
+    },
+    {
+      "reservationID": 2,
+      "trailID": 128614012,
+      "difficulty": 0,
+      "attending": 0,
+      "limit": 100,
+      "time": "9:30 AM",
+      "date": "7/29"
+    },
+    {
+      "reservationID": 3,
+      "trailID": 1297481682,
+      "difficulty": 0,
+      "attending": 0,
+      "limit": 10,
+      "time": "11:00 AM",
+      "date": "7/25"
+    },
+    {
+      "reservationID": 4,
+      "trailID": 76832342,
+      "difficulty": 0,
+      "attending": 0,
+      "limit": 10,
+      "time": "10:30 AM",
+      "date": "7/24"
+    },
+    {
+      "reservationID": 5,
+      "trailID": 13435673,
+      "difficulty": 1,
+      "attending": 0,
+      "limit": 10,
+      "time": "1:00 PM",
+      "date": "7/27"
+    },
+    {
+      "reservationID": 6,
+      "trailID": 23678578,
+      "difficulty": 1,
+      "attending": 0,
+      "limit": 10,
+      "time": "2:00 PM",
+      "date": "7/30"
+    },
+    {
+      "reservationID": 7,
+      "trailID": 2343245,
+      "difficulty": 1,
+      "attending": 0,
+      "limit": 10,
+      "time": "3:30 PM"
+      ,
+      "date": "7/23"
+    },
+    {
+      "reservationID": 8,
+      "trailID": 234685,
+      "difficulty": 1,
+      "attending": 0,
+      "limit": 10,
+      "time": "4:00 PM",
+      "date": "7/29"
+    },
+    {
+      "reservationID": 9,
+      "trailID": 786743,
+      "difficulty": 2,
+      "attending": 0,
+      "limit": 10,
+      "time": "8:00 AM",
+      "date": "7/30"
+    },
+    {
+      "reservationID": 10,
+      "trailID": 234472,
+      "difficulty": 2,
+      "attending": 0,
+      "limit": 10,
+      "time": "9:00 AM",
+      "date": "7/29"
+    },
+    {
+      "reservationID": 11,
+      "trailID": 234472,
+      "difficulty": 2,
+      "attending": 0,
+      "limit": 10,
+      "time": "5:00 PM"
+      ,
+      "date": "8/6"
+    },
+    {
+      "reservationID": 12,
+      "trailID": 234534565,
+      "difficulty": 2,
+      "attending": 0,
+      "limit": 10,
+      "time": "4:30 PM",
+      "date": "7/31"
+    }
+  ]
+}

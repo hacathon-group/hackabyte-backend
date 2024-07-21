@@ -1,81 +1,137 @@
 const { PrismaClient } = require("@prisma/client");
-const axios = require("axios");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config();
-import { clerkClient, getAuth } from "@clerk/fastify";
 
+const { user, trail, reservation, volunteer } = require("../mongoose/schema");
+
+// Connect to MongoDB
 mongoose
-  .connect(
-    "mongodb+srv://varram:abtoGjLt7LP4jInl@cluster0.f2axjm4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-  )
-  .then(() => console.log("Connected!"));
+  .connect(process.env.MONGODB_URI)
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.error("MongoDB connection error:", err));
 
-const { user, trail, reservation, volunteer } = require("./schema");
-
-function sendMessage(message) {
-  request(webhookUrl, {
-    method: "POST",
-    headers: {
-      accept: "application/json",
-      "content-type": "application/json",
-    },
-    body: JSON.stringify({
-      content: message,
-    }),
-  });
+// Load sample data (if needed)
+async function loadSampleData() {
+  const sampleData = require("./sampleData.json");
+  // await user.deleteMany({});
+  await trail.deleteMany({});
+  await reservation.deleteMany({});
+  console.log("Loading sample data");
+  for (const trailz of sampleData.trails) {
+    await trail.create(trailz);
+  }
+  for (const reservationz of sampleData.reservations) {
+    await reservation.create(reservationz);
+  }
+  console.log("Loaded sample data");
 }
+loadSampleData();
 
-// async function verifyCaptchaRespose(token, ip) {
-// 	let formData = new FormData();
-// 	formData.append('secret', secrectCaptchaKey);
-// 	formData.append('response', token);
-// 	formData.append('remoteip', ip);
-// 	const url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
-// 	const result = await fetch(url, {
-// 		body: formData,
-// 		method: 'POST',
-// 	});
-
-// 	const outcome = await result.json();
-// 	return outcome;
-// }
 module.exports = async function (fastify, opts) {
-  fastify.get("/newUser", async (req, res) => {
-    const { userId } = getAuth(req);
-    const user = userId ? await clerkClient.users.getUser(userId) : null;
-    if (user) {
-      // throw user not found error
-      return res.status(404).send({ error: "User not registered" });
+  // Define routes
+  fastify.post("/newUser", async (req, reply) => {
+      const { userID } = req.body;
+
+      const {newlyRegistered} = await user.findOne({ userID });
+      console.log(newlyRegistered)
+      if (newlyRegistered) {
+        await user.updateOne({ userID }, { newlyRegistered: false });
+        return reply
+          .status(200)
+          .send({ newUser: true, message: "User already exists" });
+      }
+
+      return reply
+        .status(200)
+        .send({ newUser: false, message: "Send them to the question page" });
     }
+  );
 
-    const userExists = await user.findOne({ clerkID: user.id });
-    if (userExists)
-      return res.status(200).send({ newUser: false, message: "User already exists" });
+  fastify.post("/quizResults", async (req, reply) => {
+      const { userID } = req.body;
+      const { difficulty } = req.body;
+      console.log(userID)
+      console.log(difficulty)
+      const userExists = await user.findOne({ userID });
+      if (userExists) {
+        await user.updateOne({ userID }, { difficulty });
+        console.log("User info updated");
+      } else {
+        const newUser = await user.create({
+          userID,
+          reservations: [],
+          difficulty,
+        });
+        console.log(`User created: ${newUser}`);
+      }
+      return reply.status(200).send({ newUser: true, message: "User created" });
+    }
+  );
 
-	return res.status(200).send({ newUser: true, message: "send them to the questionPage" });
+  fastify.post("/newReservation", async (req, reply) => {
+      const { userID } = req.body;
+      const { reservationID } = req.body;
+      console.log(userID)
+      console.log(reservationID)
+      const reservationExists = await reservation.findOne({ reservationID });
+      console.log(reservationExists)
+      if (reservationExists) {
+        console.log("Reservation exists");
+        await user.updateOne(
+          { userID },
+          { $push: { reservations: reservationID } }
+        );
+        await reservation.updateOne(
+          { reservationID },
+          { $inc: { attending: 1 } }
+        );
+        return reply.status(200).send({ success: true, message: "Reservation added" });
+      }
+    }
+  );
+
+  fastify.post("/getReservations", async (req, reply) => {
+      const { userID } = req.body;
+
+      const userDoc = await user.findOne({ userID });
+      const reservations = await reservation.find({
+        difficulty: userDoc.difficulty,
+      });
+      return reply.status(200).send({ reservations });
+    }
+  );
+
+  fastify.post("/getMyReservations", async (req, reply) => {
+      const { userID } = req.body;
+
+      const userDoc = await user.findOne({ userID });
+      const reservations = await reservation.find({
+        reservationID: { $in: userDoc.reservations },
+      });
+      return reply.status(200).send({ reservations });
+    }
+  );
+
+  fastify.post("/getTrailInfo", async (req, reply) => {
+    const { trailID } = req.body;
+    const trailInfo = await trail.findOne({ trailID });
+    return reply.status(200).send({ trailInfo });
   });
-  fastify.post("/quizResults", async (req, res) => {
-	const { userId } = getAuth(req);
-	const user = userId ? await clerkClient.users.getUser(userId) : null;
-	if (user) {
-	  // throw user not found error
-	  return res.status(404).send({ error: "User not registered" });
-	}
 
-	const userExists = await user.findOne({ clerkID: user.id });
-	if (userExists) {
-		console.log("update user info");
-		await user.updateOne({ clerkID: user.id }, { difficulty: req.body.difficulty });
-	}
+  fastify.post("/cancelReservation", async (req, reply) => {
+      const { userID } = req.body;
+      const { reservationID } = req.body;
 
-	const { difficulty } = req.body;
-	const newUser = await user.create({
-	  clerkID: user.id,
-	  reservations: [],
-	  difficulty,
-	});
-
-	return res.status(200).send({ newUser: true, message: "User created" });
-  });
+      await user.updateOne(
+        { userID },
+        { $pull: { reservations: reservationID } }
+      );
+      await reservation.updateOne(
+        { reservationID },
+        { $inc: { attending: -1 } }
+      );
+      return reply.status(200).send({ message: "Reservation cancelled" });
+    }
+  );
 };
